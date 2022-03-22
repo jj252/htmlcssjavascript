@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find The Imposter</title>
+    
+    <link rel="stylesheet" href="mystyle.css"/>
+   
+</head>
+<body>
+    <div id="headingDiv">
+        <h1 id='heading' class='myText'>Find The Imposter</h1>
+        <form id='form1'>
+        <label for="tentacles">How Many Imposters Do You Want? (1-10):</label>
+        <input type="number" id="tentacles" name="tentacles" min="0" max="10" value="2"/>
+        <p id="myText1">Click on the extra imposter on the left</p>
+        </form>
+        <img id='myButt3' src="images/start2.png"/>
+        <img id='myButt4' src="images/hint.png"/>
+        <!--<button type='button' id='myButt3'>Start Game</button> <input type="submit" id='myButt3' value="Send"> 
+            <button type="submit" form="form1" value="Submit" id='myButt3'>Submit</button> 
+            <button type='button' id='myButt3'>Start Game</button>
+            <button type="button" id="myButt3"> <img src="images/start.png" height ="80" width="100" /></button>
+            <button type='button' id='myButt3'>Start Game</button>
+        -->
+            
+        <div id='divWin' class="align">
+            <p>Win</p>
+            <span id="spanWin">0</span>
+            <div id='divLos' class="align">
+                <p>Los</p>
+            <span id="spanLos">0</span></div>
+            <div id='divCap' class="align">
+                <p>Cap</p>
+            <span id="spanLos">0</span></div>
+        </div>
+        <div id='chooseC'>
+            <p id="select">Select a Charactor and Start the Game</p>
+            <img id='leaf' class='charactors' src="images/leaf.gif"/>
+            <img id='red' class='charactors' src="images/red.gif"/>
+            <img id='ghost' class='charactors' src="images/ghost.gif"/>
+        </div>
+        <div id='mainDiv'>
+            <div id="leftSide"></div>
+            <div id="rightSide"></div>
+            
+        </div>
+    </div>
+
+ <script>
+        //window.addEventListener('load', generateFaces);
+        let myAudio = new Audio('music.mp3');
+        myAudio.loop = true;
+        myAudio.play();
+
+        let myAudio2 = new Audio('select.wav');
+        let myAudio3 = new Audio('over.mp3');
+        
+
+        let numWrong = 0;
+        let numRight = 0;
+        let numberOfFaces = 0;
+        let imposter;
+        let test3 = document.getElementById('tentacles');
+        //console.log(test3);
+        const theLeftSide = document.querySelector('#leftSide');
+        const theRightSide = document.querySelector('#rightSide');
+        
+        document.getElementById("leftSide").style.visibility = "hidden";
+        document.getElementById("rightSide").style.visibility = "hidden";
+        document.getElementById("mainDiv").style.visibility = "hidden";
+        document.getElementById("myButt3").style.visibility = "hidden";
+        document.getElementById("myButt4").style.visibility = "hidden";
+
+        document.getElementById("leaf").addEventListener('click',imposterLeaf);
+        document.getElementById("red").addEventListener('click',imposterRed);
+        document.getElementById("ghost").addEventListener('click',imposterGhost);
+
+        function imposterLeaf(){
+            imposter = 'images/leaf.gif';
+            document.getElementById("chooseC").style.visibility = "hidden";
+            document.getElementById("myButt3").style.visibility = "visible";
+            
+            console.log(imposter);
+        }
+        function imposterRed(){
+            imposter = 'images/red.gif';
+            document.getElementById("chooseC").style.visibility = "hidden";
+            document.getElementById("myButt3").style.visibility = "visible";
+            
+        }
+        function imposterGhost(){
+            imposter = 'images/ghost.gif';
+            document.getElementById("chooseC").style.visibility = "hidden";
+            document.getElementById("myButt3").style.visibility = "visible";
+            
+        }
+
+        function startGame(){
+            event.stopPropagation();
+            console.log(test3.value);
+            document.getElementById("myButt4").style.visibility = "visible";
+            document.getElementById("myButt4").addEventListener('click',hintFunction);
+            if(test3.value === null){
+                test3.value = '5';
+            }
+            else if(test3.value === undefined){
+                test3.value = '5';
+            }
+            else if(test3.value === '0'){
+                test3.value = '5';
+            }
+
+            //alert(document.querySelector('tentacles').value);
+            //document.getElementById('tentacles').value;
+            //console.log(test3.value);
+            begin();
+            generateFaces();
+        }
+        document.getElementById("myButt3").addEventListener('click',startGame);
+
+        function hintFunction(){
+            event.stopPropagation();
+            //theLeftSide.lastChild.style.width = 350 + 'px';
+            theLeftSide.lastChild.style.transition = 'all .4s ease-in';
+            theLeftSide.lastChild.style.transform = 'scale\(3.1\)';
+            //theLeftSide.lastChild.style. 
+            console.log(theLeftSide.lastChild.style.transition);
+            console.log(theLeftSide.lastChild.style);
+        }
+       
+        function begin() {
+            event.stopPropagation();
+            //document.getElementById("mainPage").style.visibility = "hidden";
+            document.getElementById("leftSide").style.visibility = "visible";
+            document.getElementById("rightSide").style.visibility = "visible";
+
+            //numberOfFaces = parseInt(prompt('With how many faces would you like to play?'));
+            numberOfFaces = parseInt(test3.value);
+            console.log(numberOfFaces);
+            console.log(test3.value);
+            if(numberOfFaces === null){ 
+                numberOfFaces = 5;
+                
+            }
+            else if(numberOfFaces === 0){
+                numberOfFaces = 5;
+                
+            }
+               
+            //return numberOfFaces;
+        }
+
+        function generateFaces(){
+            console.log('Im in the generate faces function ' + numberOfFaces);
+            event.stopPropagation();
+            //document.getElementById("myButt").style.visibility = "hidden";
+            console.log('Im in Generate Faces');
+            for (i=0; i < numberOfFaces; i++){
+                let face = document.createElement('img');
+                face.src = imposter;
+                let randomTop = Math.floor(Math.random()*400);
+                let randomLeft = Math.floor(Math.random()*400);
+                face.style.top = randomTop + 'px';
+                face.style.left = randomLeft + 'px';
+                face.style.width = 50 + 'px';
+                face.style.height = 50 + 'px';
+                theLeftSide.appendChild(face);
+            }
+            const leftSideImages = theLeftSide.cloneNode(true);
+            leftSideImages.removeChild(leftSideImages.lastChild);
+            theRightSide.appendChild(leftSideImages);
+            
+            theLeftSide.lastChild.addEventListener('click', nextLevel);
+            document.body.addEventListener('click', gameOver);
+            /*let newButton = document.getElementById('myButt');
+            newButton.addEventListener('click', test1);*/
+        }
+        /*function test1(){
+            console.log('Made it!');
+        }*/
+        function nextLevel() {
+        myAudio2.play();
+        event.stopPropagation();
+        console.log('Im in the next level function ' + numberOfFaces);
+        numRight += 1;
+        numberOfFaces += 5;
+        console.log('Im in the next level function again ' + numberOfFaces);
+        document.getElementById("spanWin").textContent = numRight;
+        while(theLeftSide.firstChild){
+            theLeftSide.removeChild(theLeftSide.firstChild);
+        }
+        while(theRightSide.firstChild){
+            theRightSide.removeChild(theRightSide.firstChild);
+        }
+        generateFaces();
+        }
+
+        function gameOver(){
+        myAudio3.play();
+        event.stopPropagation();
+        numWrong += 1;
+        alert('The game is over You Were Wrong ' + numWrong + ' times');
+        document.getElementById("spanLos").textContent = numWrong;
+        document.getElementById("myButt4").style.visibility = "hidden";
+        theLeftSide.lastChild.removeEventListener('click', nextLevel);
+        document.body.removeEventListener('click', gameOver);
+        console.log('Im in the gameOver function');
+        event.stopPropagation();
+        //numberOfFaces = 5;
+        numTries = 0;
+        while(theLeftSide.firstChild){
+            theLeftSide.removeChild(theLeftSide.firstChild);
+        }
+        while(theRightSide.firstChild){
+            theRightSide.removeChild(theRightSide.firstChild);
+        }
+        //document.getElementById("myButt2").style.visibility = "visible";
+        //document.getElementById("myButt2").addEventListener('click',test1);
+        //generateFaces();
+        }
+        function test1(){
+            event.stopPropagation();
+            document.getElementById("myButt2").style.visibility = "hidden";
+            //numberOfFaces = 0;
+            numberOfFaces = begin();
+            console.log('Im in test1');
+            generateFaces();
+        }
+    
+    </script>
+     
+</body>
+</html>

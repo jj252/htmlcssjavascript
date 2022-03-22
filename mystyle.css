@@ -1,0 +1,209 @@
+body{
+    background-image: url('images/Free-Desktop-Gif-Pictures-HD.gif');
+    color: white;
+}
+
+img{
+    position:absolute;
+}
+
+div{
+    position:absolute;
+    width: 500px;
+    height: 500px;
+ }
+ #headingDiv{
+     position: relative;
+     margin-right: auto;
+     margin-left: auto;
+}
+#form1{
+    position: relative;
+    left: 80px;
+}
+#myText1{
+    position: relative;
+    left: 60px;
+}
+#heading{
+    font-size: 55px;
+ }
+#myButt3{
+    position: relative;
+    left: 115px;
+    width: 300px;
+    height: 50px;
+}
+#myButt4{
+    position: relative;
+    top: -10px;
+    left: 115px;
+    width: 150px;
+    height: 25px;
+}
+#divWin{
+     /*position: relative;
+     margin-right: auto;
+     margin-left: auto;
+     top: -350px;
+     position: absolute;
+     margin: 5px 10px 15px 20px;*/
+     position: relative;
+}
+
+#divLos{
+    /*position: relative;
+     margin-right: auto;
+     margin-left: auto;
+     top: -350px;*/
+     position: relative;
+     top: -70px;
+     left: 250px;
+}
+#divCap{
+    /*position: relative;
+     margin-right: auto;
+     margin-left: auto;
+     top: -350px;*/
+     position: relative;
+     top: -590px;
+     left: 550px;
+}
+#spanWin{
+    background-color: white;
+    padding: 1rem;
+    color: black;
+    border-radius: 10px;
+}
+#spanLos{
+    background-color: white;
+    padding: 1rem;
+    color: black;
+    border-radius: 10px;
+}
+#select{
+    position: relative;
+    font-size: 54px;
+    font-weight: bold;
+    left: -150px;
+    width: 1000px;
+}
+.charactors{
+    width: 100px;
+    height: 100px;
+}
+#leaf{
+    position: relative;
+    top: 100px;
+    left: -50px;
+}
+#leaf:hover{
+    transition: all .4s ease-in;
+    transform: scale(3.1);
+}
+#leaf:not( :hover ){
+    transition: all .4s ease-out;
+}
+#red{
+    position: relative;
+    left: 150px;
+    top: 100px;
+}
+#red:hover{
+    transition: all .4s ease-in;
+    transform: scale(3.1);
+}
+#red:not( :hover ){
+    transition: all .4s ease-out;
+}
+#ghost{
+    position: relative;
+    left: 350px;
+    top: 100px;
+}
+#ghost:hover{
+    transition: all .4s ease-in;
+    transform: scale(3.1);
+}
+#ghost:not( :hover ){
+    transition: all .4s ease-out;
+}
+#chooseC{
+    position: relative;
+    top: -450px;
+}
+
+#mainDiv {
+    /*position: absolute;
+    text-align: center;
+    font-family: arial;
+    font-size: 24px;
+    margin: auto;
+    outline: dashed 1px black;
+    top:100;
+    bottom: 0;
+    left: 0;
+    right: 50;*/
+    position: relative;
+    /* margin-right: auto;
+     margin-left: auto;*/
+     top: -950px;
+     text-align: center;
+     margin-left: -200px;
+}
+#leftSide{
+    border: 2px solid;  
+    border-image: url(images/3d-border-png-2.png) 30 ;
+    }
+ #rightSide{
+    left: 500px;
+    border: 2px solid;
+    border-image: url(images/3d-border-png-2.png) 30 ;
+}
+
+
+#myButt2{
+visibility: hidden;
+text-align: center;
+}
+
+
+.myText{
+color:mintcream;
+text-align: center;
+}
+
+
+
+
+
+
+#los {
+background-color: white;
+padding: 1rem;
+color: black;
+border-radius: 10px;
+}
+#los1 {
+    position: absolute;
+    left: 500px;
+    
+    display: inline;
+    }
+#smiles {
+position: relative;
+background-color: white;
+padding: 1rem;
+color: black;
+border-radius: 10px;
+left: 250px;
+}
+#mainPage {
+/*display: flex;*/
+position: relative;
+left: 250px;
+width: 80%;
+justify-content: space-evenly;
+margin-top: 2rem;
+border-radius: 10px;
+}
